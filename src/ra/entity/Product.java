@@ -69,6 +69,7 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+
     public void inputData(Scanner sc){
         System.out.println("Nhap ma san pham" );
         this.productId = sc.nextLine();
@@ -85,7 +86,7 @@ public class Product {
         this.exportPrice = this.importPrice*1.2F;
     }
     public  void displayData(){
-        System.out.printf("Ma SP: %s- Ten Sp: %s - Gia nhap: %f \n",this.productId,this.productName,this.importPrice);
+        System.out.printf("Ma SP: %s- Ten Sp: %s - Gia nhap: %s \n",this.productId,this.productName,this.importPrice);
         System.out.printf("Gia ban: %.2f- Số Lượng: %d - Mô tả: %s \n",this.exportPrice,this.quantity,this.description);
     }
 }

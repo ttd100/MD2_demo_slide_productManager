@@ -3,9 +3,10 @@ import ra.entity.Product;
 import java.util.Scanner;
 
 public class Main {
-    static int index = -1;
+
     //khoi tao mang toan cuc
     static Product[] arrProduct = new Product[1000];
+    static int index = -1;
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -33,6 +34,7 @@ public class Main {
                     Main.searchProductByName(sc);
                     break;
                 case 5:
+                    Main.sortByExportPriceASC();
                     break;
                 case 6:
                     System.exit(0);
@@ -84,6 +86,19 @@ public class Main {
         if (!checkExist) {
             System.out.println("không tồn tại sản phẩm nào có tên trong danh sách");
         }
+    }
+    public static void sortByExportPriceASC(){
+        for (int i = 0; i < index; i++) {
+            for (int j = i+1; j <= index ; j++) {
+                if (arrProduct[i].getExportPrice() > arrProduct[j].getExportPrice()) {
+                    // doi cho 2 phan tu
+                    Product temp = arrProduct[i];
+                    arrProduct[i] = arrProduct[j];
+                    arrProduct[j] = temp;
+                }
+            }
+        }
+        System.out.println("Da sap xep cac san pham theo gia ban tang dan");
     }
 
 }
